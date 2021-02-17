@@ -72,7 +72,17 @@ class normalizeData():
 				pass
 
 			elif line.endswith("0-1") or line.endswith("1-0") or line.endswith("1/2-1/2"):
-				column_data["moves"] = line
+				
+				line = line.split(" ")
+				moves = []
+
+				for value in line:
+					if value.endswith("."):
+						pass
+					else:
+						moves.append(value)
+
+				column_data["moves"] = moves
 				total_data[index] = column_data
 				index = index+1
 				column_data = {}
