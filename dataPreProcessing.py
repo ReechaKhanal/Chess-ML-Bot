@@ -11,11 +11,11 @@ class dataPreProcessing():
 		df = df.drop(['WhiteElo', 'BlackElo', 'WhiteRatingDiff', 'BlackRatingDiff', 'Variant', 'Result'], axis=1)
 		
 		
-		# modifycolumns "White"	and "Black"
-		df.loc[df['White'] == ' "Rkitty"', 'NW'] = 1
-		df.loc[df['White'] != ' "Rkitty"', 'NW'] = 0
+		# add a 
+		df.loc[df['White'] == ' "Rkitty"', 'PlayerColor'] = 1
+		df.loc[df['White'] != ' "Rkitty"', 'PlayerColor'] = 0
 
-		df.loc[df['Black'] == ' "Rkitty"', 'NB'] = 1
-		df.loc[df['Black'] != ' "Rkitty"', 'NB'] = 0
+		# We no longer need the columns 'White' & 'Black'
+		df = df.drop(['White', 'Black'],  axis=1)
 
 		return df
